@@ -1,0 +1,23 @@
+salvanasalary={
+    "E104":{
+        "Empname" : "Selena Gong",
+        "dailyhours" : [8, 9, 8.5, 10, 8],
+    },
+        "Empname" : "Nikka Salonga",
+        "Dailyhours" : [8, 9, 8, 9, 8]
+    },
+
+search=input("\nEnter Employee Name : ")
+for name,dailyhours in salvanasalary.items():
+    if search in salvanasalary:
+        print("Employee ID is in list")
+    else:
+        print("Not found")
+
+weeklybasic=9000
+oTrate = 1.5
+#Calculate The rate Peh Hour
+ratephr = weeklybasic/40
+print()
+Grosspay=(40 * ratephr)*oTrate
+print(Grosspay)
