@@ -1,0 +1,43 @@
+salvanasalary = {
+    "emp1": {
+        "EmpName": "Nino Salvana",
+        "DailyHrs": [8, 9, 8.5, 10, 8],
+        "WeeklyBasic": 9000,
+    },
+    "emp2": {
+        "EmpName": "John Salvana",
+        "DailyHrs": [9, 10, 8, 8, 9],
+        "WeeklyBasic": 9000,
+    },
+}
+
+salvanaempid = input("Enter Employee ID: ").lower()
+
+if salvanaempid in salvanasalary:
+    salvanaemphours = salvanasalary[salvanaempid]
+
+    print("Employee ID:", salvanaempid)
+    print("Employee Name:", salvanaemphours["EmpName"])
+    print("Daily Hours:", end=" ")
+
+    for hours in salvanaemphours["DailyHrs"]:
+        print(hours, end=" ")
+
+    salvanatotalhours = sum(salvanaemphours["DailyHrs"])
+    salvanarph = salvanaemphours["WeeklyBasic"] / 40
+    salvanaothours = 0
+
+    for salvanahours in salvanaemphours["DailyHrs"]:
+        if salvanahours > 8:
+            salvanaothours += salvanahours - 8
+
+    salvanaotpay = salvanaothours * (salvanarph * 1.5)
+    salvanagrosspay = salvanaemphours["WeeklyBasic"] + salvanaotpay
+
+    print("\nTotal Hours:", salvanatotalhours)
+    print("Overtime Hours:", salvanaothours)
+    print("Rate Per Hour: ₱", round(salvanarph, 2))
+    print("Overtime Pay: ₱", round(salvanaotpay, 2))
+    print("Gross Pay: ₱", round(salvanagrosspay, 2))
+else:
+    print("EMPLOYEE ID NOT FOUND")
